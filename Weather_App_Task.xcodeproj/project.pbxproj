@@ -28,6 +28,7 @@
 		5D9B6EE92A2F126500B0F930 /* globalEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EE82A2F126500B0F930 /* globalEXT.swift */; };
 		5D9B6EEB2A2F249300B0F930 /* HourlyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EEA2A2F249300B0F930 /* HourlyWeatherView.swift */; };
 		5D9B6EED2A2F25DF00B0F930 /* HourlyWeatherCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EEC2A2F25DF00B0F930 /* HourlyWeatherCellView.swift */; };
+		5D9B6EF52A2FB9FA00B0F930 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EF42A2FB9FA00B0F930 /* Helper.swift */; };
 		5DFDF1D62A2CF4860077299E /* Weather_App_TaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDF1D52A2CF4860077299E /* Weather_App_TaskApp.swift */; };
 		5DFDF1D82A2CF4860077299E /* SplashtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDF1D72A2CF4860077299E /* SplashtView.swift */; };
 		5DFDF1DA2A2CF4870077299E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDF1D92A2CF4870077299E /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		5D9B6EE82A2F126500B0F930 /* globalEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalEXT.swift; sourceTree = "<group>"; };
 		5D9B6EEA2A2F249300B0F930 /* HourlyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherView.swift; sourceTree = "<group>"; };
 		5D9B6EEC2A2F25DF00B0F930 /* HourlyWeatherCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherCellView.swift; sourceTree = "<group>"; };
+		5D9B6EF42A2FB9FA00B0F930 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5DFDF1D22A2CF4860077299E /* Weather_App_Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather_App_Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFDF1D52A2CF4860077299E /* Weather_App_TaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_App_TaskApp.swift; sourceTree = "<group>"; };
 		5DFDF1D72A2CF4860077299E /* SplashtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashtView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				5DFDF2052A2CF7C70077299E /* CustomExtensions */,
 				5DFDF20C2A2CF9E60077299E /* Constant.swift */,
 				5DFDF24B2A2E3BDA0077299E /* Enums.swift */,
+				5D9B6EF42A2FB9FA00B0F930 /* Helper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				5D9B6ECE2A2E673500B0F930 /* CountriesCitiesManager.swift in Sources */,
 				5D9B6EED2A2F25DF00B0F930 /* HourlyWeatherCellView.swift in Sources */,
 				5D9B6ED02A2E6ACD00B0F930 /* CountriesCitiesModel.swift in Sources */,
+				5D9B6EF52A2FB9FA00B0F930 /* Helper.swift in Sources */,
 				5D9B6EE72A2F00F200B0F930 /* NotificationsView.swift in Sources */,
 				5D9B6EEB2A2F249300B0F930 /* HourlyWeatherView.swift in Sources */,
 			);
@@ -802,6 +806,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Weather-App-Task-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Weather App";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs access to your location to provide real-time updates and navigation directions, even when the app is running in the background.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to find nearby restaurants and recommend personalized deals based on your current location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -835,6 +840,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Weather-App-Task-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Weather App";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs access to your location to provide real-time updates and navigation directions, even when the app is running in the background.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to find nearby restaurants and recommend personalized deals based on your current location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

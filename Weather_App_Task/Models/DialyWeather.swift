@@ -1,44 +1,3 @@
-//
-//  DialyWeather.swift
-//  Weather_App_Task
-//
-//  Created by Nadeen Dames on 05/06/2023.
-//
-
-//import Foundation
-//class DailyWeather: Codable {
-//    let lat,lon: Double
-//    let hourly: [Hourly]
-//    let daily: [Daily]
-//    let current: Hourly
-//}
-//
-//
-//class Daily: Codable {
-//    let dt: TimeInterval
-//    let weather: [WeatherIcon]
-//    let temp: Temp
-//}
-//
-//class Hourly: Codable,Identifiable {
-//    var id :Int = 0
-//    let dt: TimeInterval
-//    let weather: [WeatherIcon]
-//    let temp: Double
-//
-//}
-//
-//class WeatherIcon: Codable {
-//    let icon: String
-//}
-//
-//class Temp: Codable {
-//    let min: Double
-//    let max: Double
-//}
-//
-//
-
 import Foundation
 
 // MARK: - DailyWeather
@@ -46,8 +5,8 @@ struct DailyWeather: Codable {
     let lat, lon: Double
     let timezone: String
     let timezoneOffset: Int
-    let current: Hourly
-    let hourly: [Hourly]
+    let current: Current
+    let hourly: [Current]
     let daily: [Daily]
 
     enum CodingKeys: String, CodingKey {
@@ -58,9 +17,9 @@ struct DailyWeather: Codable {
 }
 
 // MARK: - Current
-struct Hourly: Codable,Identifiable {
-    let id: Int = 0
-    let dt: Int
+struct Current: Codable,Identifiable {
+    var id: Int = 0
+    let dt: TimeInterval
     let sunrise, sunset: Int?
     let temp, feelsLike: Double
     let pressure, humidity: Int
@@ -68,14 +27,26 @@ struct Hourly: Codable,Identifiable {
     let clouds, visibility: Int
     let windSpeed: Double
     let windDeg: Int
-    let windGust: Double
-    let weather: [WeatherDialy]
-    let pop: Double?
+    let weather: [Weathers]
+    let windGust: Double?
+    let pop: Int?
 
+    enum CodingKeys: String, CodingKey {
+        case dt, sunrise, sunset, temp
+        case feelsLike = "feels_like"
+        case pressure, humidity
+        case dewPoint = "dew_point"
+        case uvi, clouds, visibility
+        case windSpeed = "wind_speed"
+        case windDeg = "wind_deg"
+        case weather
+        case windGust = "wind_gust"
+        case pop
+    }
 }
 
 // MARK: - Weather
-struct WeatherDialy: Codable {
+struct Weathers: Codable {
     let id: Int
     let main: MainWeather
     let description: Description
@@ -86,6 +57,7 @@ enum Description: String, Codable {
     case brokenClouds = "broken clouds"
     case clearSky = "clear sky"
     case fewClouds = "few clouds"
+    case lightRain = "light rain"
     case overcastClouds = "overcast clouds"
     case scatteredClouds = "scattered clouds"
 }
@@ -93,11 +65,14 @@ enum Description: String, Codable {
 enum MainWeather: String, Codable {
     case clear = "Clear"
     case clouds = "Clouds"
+    case rain = "Rain"
 }
 
 // MARK: - Daily
-struct Daily: Codable {
-    let dt, sunrise, sunset, moonrise: Int
+struct Daily: Codable,Identifiable {
+    let id = 0
+    let dt: TimeInterval
+    let sunrise, sunset, moonrise: Int
     let moonset: Int
     let moonPhase: Double
     let temp: Temp
@@ -109,6 +84,7 @@ struct Daily: Codable {
     let weather: [Weather]
     let clouds: Int
     let pop, uvi: Double
+    let rain: Double?
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, moonrise, moonset
@@ -120,7 +96,7 @@ struct Daily: Codable {
         case windSpeed = "wind_speed"
         case windDeg = "wind_deg"
         case windGust = "wind_gust"
-        case weather, clouds, pop, uvi
+        case weather, clouds, pop, uvi, rain
     }
 }
 

@@ -15,12 +15,17 @@ class GlobalViewModel : NSObject, ObservableObject{
     @Published var weatherCondition = ""
     @Published var iconWeather = ""
     @Published var iconWithHost = ""
-    @Published var dataHourly = [Hourly]()
+    @Published var iconDialyWithHost = ""
+    @Published var dataHourly = [Current]()
+    @Published var dataDaily = [Daily]()
     @Published var humidityWeather = ""
     @Published var windSpeedWeather = ""
     @Published var countryState = ""
     @Published var maxTemp = ""
     @Published var minTemp = ""
+    @Published var feels_like = ""
+    @Published var pressure = ""
+    @Published var testTemp = 0
     
     @Published var isGeolocationWeather = false
     private let monitor = NWPathMonitor()
@@ -29,7 +34,13 @@ class GlobalViewModel : NSObject, ObservableObject{
         if weather.lat != nil && weather.lon != nil {
             self.weather.withGeolocationWeather {
                 self.isGeolocationWeather = true
-                print("DielyWeather",self.weather.currentWeather?.sys.country)
+                if self.weather.dailyWeather == nil{
+                    KRProgressHUD.showError(withMessage: "A server with the specified hostname could not be found.")
+                }
+                else{
+                    self.dataHourly = self.weather.dailyWeather?.hourly ?? []
+                    self.dataDaily = self.weather.dailyWeather?.daily ?? []
+                }
                 if self.weather.currentWeather == nil{
                     KRProgressHUD.showError(withMessage: "A server with the specified hostname could not be found.")
                 }
@@ -39,12 +50,12 @@ class GlobalViewModel : NSObject, ObservableObject{
                     self.weatherCondition = self.weather.currentWeather?.weather.first?.description.capitalized ?? ""
                     self.iconWeather = "\(self.weather.currentWeather?.weather.first?.icon ?? "")"
                     self.iconWithHost = "https://openweathermap.org/img/wn/\(self.iconWeather).png"
-                    self.dataHourly = self.weather.dailyWeather?.hourly ?? []
-                    self.humidityWeather = self.weather.currentWeather?.main.humidity.formatToTwoDigits() ?? "0.0"
-                    self.windSpeedWeather = self.weather.currentWeather?.wind.speed.formatToTwoDigits() ?? "0.0"
+                    self.humidityWeather = self.weather.currentWeather?.main.humidity.formatToTwoDigitsPrec() ?? "0.0"
+                    self.windSpeedWeather = self.weather.currentWeather?.wind.speed.formatToTwoDigitsPrec() ?? "0.0"
                     self.countryState = self.weather.currentWeather?.sys.country ?? ""
                     self.maxTemp = self.weather.currentWeather?.main.temp_max.formatToTwoDigitsCe() ?? ""
                     self.minTemp = self.weather.currentWeather?.main.temp_min.formatToTwoDigitsCe() ?? ""
+                    self.pressure = self.weather.currentWeather?.main.feels_like.formatToTwoDigitsPrec() ?? ""
                 }
 
             }
@@ -61,11 +72,12 @@ class GlobalViewModel : NSObject, ObservableObject{
                     self.iconWeather = "\(self.weather.currentWeather?.weather.first?.icon)"
                     self.iconWithHost = "https://openweathermap.org/img/wn/\(self.iconWeather).png"
                     self.dataHourly = self.weather.dailyWeather?.hourly ?? []
-                    self.humidityWeather = self.weather.currentWeather?.main.humidity.formatToTwoDigits() ?? "0.0 %"
-                    self.windSpeedWeather = self.weather.currentWeather?.wind.speed.formatToTwoDigits() ?? "0.0"
+                    self.humidityWeather = self.weather.currentWeather?.main.humidity.formatToTwoDigitsPrec() ?? "0.0 %"
+                    self.windSpeedWeather = self.weather.currentWeather?.wind.speed.formatToTwoDigitsPrec() ?? "0.0"
                     self.countryState = self.weather.currentWeather?.sys.country ?? ""
                     self.maxTemp = self.weather.currentWeather?.main.temp_max.formatToTwoDigitsCe() ?? ""
                     self.minTemp = self.weather.currentWeather?.main.temp_min.formatToTwoDigitsCe() ?? ""
+                    self.pressure = self.weather.currentWeather?.main.feels_like.formatToTwoDigitsPrec() ?? ""
 
                 }
             }

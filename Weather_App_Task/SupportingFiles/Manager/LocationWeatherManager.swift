@@ -29,7 +29,6 @@ class LocationWeatherManager {
     }
     
     func getDailyWeather(lat:Double,lon:Double,locale: String, completion: @escaping (Result<DailyWeather,NetworkError>) -> ()) {
-        
         guard let url = URL(string: "\(API.API_Daily_Weather_HOST)lat=\(lat)&lon=\(lon)&exclude=minutely&units=metric&appid=\(API_KEY)") else {
             completion(.failure(.serverError))
             return

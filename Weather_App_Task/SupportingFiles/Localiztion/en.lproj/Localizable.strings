@@ -10,4 +10,5 @@
 "wind_speed" = "Wind Speed";
 "max_temp" = "Max Temp";
 "min_temp" = "Min Temp";
-
+"feels_like" = "Feels Like";
+"pressure" = "Pressure";
