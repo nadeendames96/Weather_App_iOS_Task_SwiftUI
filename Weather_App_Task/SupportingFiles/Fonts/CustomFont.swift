@@ -34,4 +34,10 @@ class CustomFont{
         return Font.custom("Cairo-Medium", size: 18)
     }
     
+    public static var ExtraBoldFont : Font{
+        return Font.custom("Cairo-Bold", size: 35)
+    }
+    
+    
+    
 }

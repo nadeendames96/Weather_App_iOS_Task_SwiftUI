@@ -5,21 +5,20 @@ import SwiftUI
 import KRProgressHUD
 struct SplashView: View {
     @State private var isShowMainScreen = false
-    @StateObject private var splashViewModel = SplashViewModel()
     var body: some View {
         NavigationView {
-            VStack {
-                Image("weather")
+            VStack{
+                Image("cloudIcon")
                     .resizable()
-                    .scaledToFit()
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
                 NavigationLink(destination: HomeView(), isActive: $isShowMainScreen) {
                     EmptyView()
                 }
                 .hidden()
-            }.onAppear{
-                splashViewModel.actualLocation()
+            } .edgesIgnoringSafeArea(.all)
+
+            .onAppear{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     KRProgressHUD.show()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -28,7 +27,6 @@ struct SplashView: View {
                     }
                 }
             }
-            .padding()
             .background(Color.bgColor)
         }
     }

@@ -6,3 +6,7 @@
   
 */
 "Welcome_tis_app" = "Welcome To TIS Weather Application";
+"humidity" = "رطوبة";
+"wind_speed" = "سرعة الرياح";
+"max_temp" = "Max Temp";
+"min_temp" = "Min Temp";

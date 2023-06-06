@@ -11,7 +11,7 @@ class CountriesCitiesImp {
     static let shared = CountriesCitiesImp()
     private init () {}
     
-    func getCity() {
+    func getCountryCity() {
        let queue = DispatchQueue(label: "CountriesCitiesImp")
        queue.async {
            CountriesCitiesManager.shared.getCountryCity { [weak self] newCity in

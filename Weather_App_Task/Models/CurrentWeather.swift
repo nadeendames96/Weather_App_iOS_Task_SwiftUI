@@ -7,6 +7,7 @@
 
 
 import Foundation
+
 class CurrentWeather: Codable {
     let coord: Coord
     let weather: [Weather]

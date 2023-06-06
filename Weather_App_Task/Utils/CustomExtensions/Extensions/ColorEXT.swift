@@ -10,4 +10,5 @@ import SwiftUI
 extension Color{
     static let bgColor = Color("bgColor")
     static let txtColor = Color("txtColor")
+    static let weatherSkyColor = Color("weatherSkyColor")
 }

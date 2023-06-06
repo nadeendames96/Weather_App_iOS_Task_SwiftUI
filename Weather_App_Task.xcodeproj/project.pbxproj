@@ -20,9 +20,14 @@
 		5D9B6ED82A2E6DDD00B0F930 /* DialyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6ED72A2E6DDD00B0F930 /* DialyWeather.swift */; };
 		5D9B6EDB2A2E6E7800B0F930 /* LocationWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EDA2A2E6E7800B0F930 /* LocationWeatherManager.swift */; };
 		5D9B6EDD2A2E75C300B0F930 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EDC2A2E75C200B0F930 /* SearchView.swift */; };
-		5D9B6EDF2A2E784500B0F930 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EDE2A2E784500B0F930 /* SplashViewModel.swift */; };
+		5D9B6EDF2A2E784500B0F930 /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EDE2A2E784500B0F930 /* GlobalViewModel.swift */; };
 		5D9B6EE12A2E79BB00B0F930 /* NoLocationWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EE02A2E79BB00B0F930 /* NoLocationWeatherManager.swift */; };
 		5D9B6EE32A2E7FC900B0F930 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EE22A2E7FC900B0F930 /* HomeViewModel.swift */; };
+		5D9B6EE52A2E88DC00B0F930 /* CiteisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EE42A2E88DC00B0F930 /* CiteisModel.swift */; };
+		5D9B6EE72A2F00F200B0F930 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EE62A2F00F200B0F930 /* NotificationsView.swift */; };
+		5D9B6EE92A2F126500B0F930 /* globalEXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EE82A2F126500B0F930 /* globalEXT.swift */; };
+		5D9B6EEB2A2F249300B0F930 /* HourlyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EEA2A2F249300B0F930 /* HourlyWeatherView.swift */; };
+		5D9B6EED2A2F25DF00B0F930 /* HourlyWeatherCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B6EEC2A2F25DF00B0F930 /* HourlyWeatherCellView.swift */; };
 		5DFDF1D62A2CF4860077299E /* Weather_App_TaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDF1D52A2CF4860077299E /* Weather_App_TaskApp.swift */; };
 		5DFDF1D82A2CF4860077299E /* SplashtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDF1D72A2CF4860077299E /* SplashtView.swift */; };
 		5DFDF1DA2A2CF4870077299E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDF1D92A2CF4870077299E /* Assets.xcassets */; };
@@ -77,9 +82,14 @@
 		5D9B6ED72A2E6DDD00B0F930 /* DialyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialyWeather.swift; sourceTree = "<group>"; };
 		5D9B6EDA2A2E6E7800B0F930 /* LocationWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWeatherManager.swift; sourceTree = "<group>"; };
 		5D9B6EDC2A2E75C200B0F930 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		5D9B6EDE2A2E784500B0F930 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		5D9B6EDE2A2E784500B0F930 /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		5D9B6EE02A2E79BB00B0F930 /* NoLocationWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLocationWeatherManager.swift; sourceTree = "<group>"; };
 		5D9B6EE22A2E7FC900B0F930 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5D9B6EE42A2E88DC00B0F930 /* CiteisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CiteisModel.swift; sourceTree = "<group>"; };
+		5D9B6EE62A2F00F200B0F930 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		5D9B6EE82A2F126500B0F930 /* globalEXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalEXT.swift; sourceTree = "<group>"; };
+		5D9B6EEA2A2F249300B0F930 /* HourlyWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherView.swift; sourceTree = "<group>"; };
+		5D9B6EEC2A2F25DF00B0F930 /* HourlyWeatherCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherCellView.swift; sourceTree = "<group>"; };
 		5DFDF1D22A2CF4860077299E /* Weather_App_Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather_App_Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFDF1D52A2CF4860077299E /* Weather_App_TaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_App_TaskApp.swift; sourceTree = "<group>"; };
 		5DFDF1D72A2CF4860077299E /* SplashtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashtView.swift; sourceTree = "<group>"; };
@@ -235,6 +245,7 @@
 				5D9B6ED32A2E6D8D00B0F930 /* WeatherModel.swift */,
 				5D9B6ED52A2E6DBA00B0F930 /* CurrentWeather.swift */,
 				5D9B6ED72A2E6DDD00B0F930 /* DialyWeather.swift */,
+				5D9B6EE42A2E88DC00B0F930 /* CiteisModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +258,9 @@
 				5DFDF2012A2CF6460077299E /* ViewModels */,
 				5DFDF2472A2E3AA10077299E /* HomeView.swift */,
 				5D9B6EDC2A2E75C200B0F930 /* SearchView.swift */,
+				5D9B6EE62A2F00F200B0F930 /* NotificationsView.swift */,
+				5D9B6EEA2A2F249300B0F930 /* HourlyWeatherView.swift */,
+				5D9B6EEC2A2F25DF00B0F930 /* HourlyWeatherCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,7 +268,7 @@
 		5DFDF2012A2CF6460077299E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5D9B6EDE2A2E784500B0F930 /* SplashViewModel.swift */,
+				5D9B6EDE2A2E784500B0F930 /* GlobalViewModel.swift */,
 				5D9B6EE22A2E7FC900B0F930 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
@@ -263,7 +277,7 @@
 		5DFDF2022A2CF6570077299E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5DFDF2052A2CF7C70077299E /* CustomViews */,
+				5DFDF2052A2CF7C70077299E /* CustomExtensions */,
 				5DFDF20C2A2CF9E60077299E /* Constant.swift */,
 				5DFDF24B2A2E3BDA0077299E /* Enums.swift */,
 			);
@@ -281,12 +295,13 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		5DFDF2052A2CF7C70077299E /* CustomViews */ = {
+		5DFDF2052A2CF7C70077299E /* CustomExtensions */ = {
 			isa = PBXGroup;
 			children = (
 				5DFDF2062A2CF7DD0077299E /* Extensions */,
+				5D9B6EE82A2F126500B0F930 /* globalEXT.swift */,
 			);
-			path = CustomViews;
+			path = CustomExtensions;
 			sourceTree = "<group>";
 		};
 		5DFDF2062A2CF7DD0077299E /* Extensions */ = {
@@ -594,19 +609,24 @@
 				5DFDF2482A2E3AA10077299E /* HomeView.swift in Sources */,
 				5D9B6ED82A2E6DDD00B0F930 /* DialyWeather.swift in Sources */,
 				5D9B6EE12A2E79BB00B0F930 /* NoLocationWeatherManager.swift in Sources */,
+				5D9B6EE52A2E88DC00B0F930 /* CiteisModel.swift in Sources */,
 				5DFDF2092A2CF8030077299E /* ColorEXT.swift in Sources */,
 				5D9B6EDD2A2E75C300B0F930 /* SearchView.swift in Sources */,
 				5D9B6ED42A2E6D8D00B0F930 /* WeatherModel.swift in Sources */,
+				5D9B6EE92A2F126500B0F930 /* globalEXT.swift in Sources */,
 				5DFDF20D2A2CF9E60077299E /* Constant.swift in Sources */,
 				5DFDF2272A2CFC860077299E /* CustomFont.swift in Sources */,
 				5DFDF20B2A2CF9820077299E /* StringEXT.swift in Sources */,
 				5DFDF1D62A2CF4860077299E /* Weather_App_TaskApp.swift in Sources */,
-				5D9B6EDF2A2E784500B0F930 /* SplashViewModel.swift in Sources */,
+				5D9B6EDF2A2E784500B0F930 /* GlobalViewModel.swift in Sources */,
 				5D9B6EDB2A2E6E7800B0F930 /* LocationWeatherManager.swift in Sources */,
 				5D9B6ED62A2E6DBA00B0F930 /* CurrentWeather.swift in Sources */,
 				5DFDF24C2A2E3BDA0077299E /* Enums.swift in Sources */,
 				5D9B6ECE2A2E673500B0F930 /* CountriesCitiesManager.swift in Sources */,
+				5D9B6EED2A2F25DF00B0F930 /* HourlyWeatherCellView.swift in Sources */,
 				5D9B6ED02A2E6ACD00B0F930 /* CountriesCitiesModel.swift in Sources */,
+				5D9B6EE72A2F00F200B0F930 /* NotificationsView.swift in Sources */,
+				5D9B6EEB2A2F249300B0F930 /* HourlyWeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,9 +798,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weather_App_Task/Preview Content\"";
+				DEVELOPMENT_TEAM = 96U3939Z6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Weather-App-Task-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs access to your location to provide real-time updates and navigation directions, even when the app is running in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to find nearby restaurants and recommend personalized deals based on your current location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -791,7 +814,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nadeen.Weather-App-Task";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shofne.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -808,9 +831,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Weather_App_Task/Preview Content\"";
+				DEVELOPMENT_TEAM = 96U3939Z6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Weather-App-Task-Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs access to your location to provide real-time updates and navigation directions, even when the app is running in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location to find nearby restaurants and recommend personalized deals based on your current location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -821,7 +847,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nadeen.Weather-App-Task";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shofne.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

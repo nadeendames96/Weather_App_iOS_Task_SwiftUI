@@ -6,16 +6,14 @@
 //
 
 import Foundation
-
+import KRProgressHUD
 class WeatherModel {
     private var lang = Locale.current.languageCode
     var lat: Double?
     var lon: Double?
     var currentWeather: CurrentWeather?
     var dailyWeather: DailyWeather?
-    
     private let group = DispatchGroup()
-    
     func withGeolocationWeather(completion: @escaping () -> ()) {
         group.enter()
             LocationWeatherManager.shared.getCurrentWeather(lat: lat!, lon: lon!, locale: lang!) { [weak self] result in
