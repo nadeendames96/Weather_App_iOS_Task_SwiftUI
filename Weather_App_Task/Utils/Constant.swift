@@ -17,3 +17,5 @@ let API_KEY = "1c2ba745810db56a9f945361a2520a0a"
 let DEFAULT_DAILRY_WEATHER_API = "https://api.openweathermap.org/data/2.5/onecall?lat=53.9024716&lon=27.5618225&"
 let DEFAULT_CURRENT_WEATHER_API = "https://api.openweathermap.org/data/2.5/weather?lat=53.9024716&lon=27.5618225&"
 let cornerRaduis = 10.0
+let largeCornerRaduis = 20.0
+let opacityColor = 0.5

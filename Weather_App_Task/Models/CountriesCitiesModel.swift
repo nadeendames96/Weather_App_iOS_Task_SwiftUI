@@ -18,7 +18,7 @@ struct CountriesCiteModel: Codable {
     let translations: Translations
     let latitude, longitude, emoji, emojiU: String
     let cities: [City]
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, iso3, iso2
         case phoneCode = "phone_code"

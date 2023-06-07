@@ -17,7 +17,7 @@ struct CountryModel: Codable {
     let timezones: [Timezone]
     let translations: Translations
     let latitude, longitude, emoji, emojiU: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name, iso3, iso2
         case phoneCode = "phone_code"

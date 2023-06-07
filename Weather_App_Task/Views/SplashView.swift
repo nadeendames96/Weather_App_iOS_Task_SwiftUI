@@ -17,17 +17,17 @@ struct SplashView: View {
                 }
                 .hidden()
             } .edgesIgnoringSafeArea(.all)
-            .onAppear{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    KRProgressHUD.show()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        self.isShowMainScreen = true
-                        KRProgressHUD.dismiss()
-                        CountriesCitiesImp.shared.getCity()
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        KRProgressHUD.show()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            self.isShowMainScreen = true
+                            KRProgressHUD.dismiss()
+                            CountriesCitiesImp.shared.getCity()
+                        }
                     }
                 }
-            }
-            .background(Color.bgColor)
+                .background(Color.bgColor)
         }
     }
 }

@@ -82,7 +82,7 @@ struct HomeView: View {
                                         .padding(.top,-10)
                                         .padding(.bottom,20)
                                 }
-                                    .background(Color.black.opacity(0.5))
+                                    .background(Color.black.opacity(opacityColor))
                                     .cornerRadius(40)
                                     .padding(.top,100)
                                     .padding(.all)
@@ -106,15 +106,15 @@ struct HomeView: View {
                                                     EmptyView()
                                                 }
                                             }
-                                            Text("\(weather.temp.formatToTwoDigits())").font(CustomFont.MeduimRegularFont)
+                                            Text("\(weather.temp.formatToTwoDigits())").font(CustomFont.LargeRegularFont)
                                                 .foregroundColor(Color.txtColor)
                                             
                                             Text(verbatim: "\(dateFormater(date: weather.dt, dateFormat: "E d MMM",timezone: globalViewModel.weather.currentWeather!.timezone))").font(CustomFont.MeduimRegularFont)
                                                 .foregroundColor(Color.txtColor)
                                         }
-                                    }
+                                    }.padding()
+                                    
                                 }
-                                .padding()
                             }
                         }
                         Spacer()
@@ -160,30 +160,34 @@ struct HomeView: View {
                             .padding(.trailing,10)
                         if !globalViewModel.dataDaily.isEmpty {
                             ScrollView(.horizontal, showsIndicators: false) {
-                                HStack(spacing: 16) {
-                                    ForEach(globalViewModel.dataDaily ?? []) { weather in
-                                        AsyncImage(url: URL(string: "https://openweathermap.org/img/wn/\(weather.weather.first?.icon).png")) { phase in
-                                            switch phase {
-                                            case .success(let image):
-                                                image
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 35, height: 35 )
-                                                
-                                            @unknown default:
-                                                EmptyView()
+                                VStack{
+                                    Spacer()
+                                    HStack(spacing: 16) {
+                                        ForEach(globalViewModel.dataDaily ?? []) { weather in
+                                            AsyncImage(url: URL(string: "https://openweathermap.org/img/wn/\(weather.weather.first?.icon).png")) { phase in
+                                                switch phase {
+                                                case .success(let image):
+                                                    image
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 35, height: 35 )
+                                                    
+                                                @unknown default:
+                                                    EmptyView()
+                                                }
                                             }
+                                            Text(verbatim: "\(dateFormater(date: weather.dt, dateFormat: "E d MMM",timezone: globalViewModel.weather.currentWeather!.timezone))").font(CustomFont.MeduimRegularFont)
+                                                .foregroundColor(Color.txtColor)
+                                            Text(verbatim: "\(weather.temp.day.formatToTwoDigitsCe())").font(CustomFont.ExtraLarageRegularFont)
+                                                .foregroundColor(Color.txtColor)
+                                            Spacer()
                                         }
-                                        Text(verbatim: "\(dateFormater(date: weather.dt, dateFormat: "E d MMM",timezone: globalViewModel.weather.currentWeather!.timezone))").font(CustomFont.MeduimRegularFont)
-                                            .foregroundColor(Color.txtColor)
-                                        Text(verbatim: "\(weather.temp.day.formatToTwoDigitsCe())").font(CustomFont.MeduimRegularFont)
-                                            .foregroundColor(Color.txtColor)
-                                        Spacer()
+                                        
                                     }
-                                    
-                                }.background(.yellow.opacity(0.5))
+                                    .padding()
+                                }.background(RoundedRectangle(cornerRadius: cornerRaduis).stroke(Color.yellow.opacity(opacityColor),lineWidth: 5))
                             }
-                            .padding()
+                            
                         }
                     }
                 }.onAppear{
@@ -216,10 +220,10 @@ struct HomeView: View {
                             guard let currentLanguage = Bundle.main.preferredLocalizations.first else {
                                 return
                             }
-
+                            
                             if currentLanguage == "ar"{
                                 homeViewModel.changeLanguage(to: "en")
-
+                                
                             }
                             else{
                                 homeViewModel.changeLanguage(to: "ar")
@@ -238,22 +242,6 @@ struct HomeView: View {
                     .buttonStyle(PlainButtonStyle())
                 }
             }
-            //            .navigationBarItems(trailing:
-            //                                    NavigationLink(destination: SearchView()) {
-            //                Image(systemName: "location.magnifyingglass")
-            //                    .imageScale(.large)
-            //                    .foregroundColor(.white)
-            //            }
-            //            )
-            //            .navigationBarItems(leading:
-            //                                    NavigationLink(destination: NotificationsView()) {
-            //                Image(systemName: "bell.fill")
-            //                    .imageScale(.large)
-            //                    .foregroundColor(.white)
-            //            }
-            //            )
-            //            .navigationBarTitleDisplayMode(.large)
-            //            .navigationBarTitle("\(globalViewModel.locationName)").font(CustomFont.LargeBoldFont).foregroundColor(Color.white)
         }.navigationBarBackButtonHidden()
             .preferredColorScheme(homeViewModel.isNightMode ? .dark : .light)
         

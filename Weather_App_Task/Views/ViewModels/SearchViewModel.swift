@@ -69,5 +69,3 @@ extension SearchViewModel: CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
     }
 }
-
-

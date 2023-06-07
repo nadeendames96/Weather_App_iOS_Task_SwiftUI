@@ -11,7 +11,7 @@ class NoLocationWeatherManager {
     static let shared = NoLocationWeatherManager()
     
     private init() {}
- 
+    
     func getCurrentWeather(lang: String, completion: @escaping (Result<CurrentWeather,NetworkError>) -> Void) {
         guard let url = URL(string: "\(DEFAULT_CURRENT_WEATHER_API)lang=\(lang)&units=metric&appid=\(API_KEY)") else {
             KRProgressHUD.showError(withMessage: "finished with error [-1003] Error Domain=NSURLErrorDomain Code=-1003 A server with the specified hostname could not be found.")

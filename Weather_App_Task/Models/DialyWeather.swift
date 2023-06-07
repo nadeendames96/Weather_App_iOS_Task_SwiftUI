@@ -8,7 +8,7 @@ struct DailyWeather: Codable {
     let current: Current
     let hourly: [Current]
     let daily: [Daily]
-
+    
     enum CodingKeys: String, CodingKey {
         case lat, lon, timezone
         case timezoneOffset = "timezone_offset"
@@ -30,7 +30,7 @@ struct Current: Codable,Identifiable {
     let weather: [Weathers]
     let windGust: Double?
     let pop: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, temp
         case feelsLike = "feels_like"
@@ -85,7 +85,7 @@ struct Daily: Codable,Identifiable {
     let clouds: Int
     let pop, uvi: Double
     let rain: Double?
-
+    
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, moonrise, moonset
         case moonPhase = "moon_phase"

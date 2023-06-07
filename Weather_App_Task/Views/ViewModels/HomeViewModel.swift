@@ -7,7 +7,7 @@
 import SwiftUI
 import Combine
 import CoreLocation
-class HomeViewModel: ObservableObject{
+class HomeViewModel:ObservableObject{
     @Published var currentDay: String = ""
     @Published var currentDate: String = ""
     @Published var isNightMode = false
@@ -66,5 +66,12 @@ class HomeViewModel: ObservableObject{
             UserDefaults.standard.synchronize()
             UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: SplashView())
         }
+    }
+    
+    func expCurrentLanguage(_ expLanguage: String) -> String{
+        guard let currentLanguage = Bundle.main.preferredLocalizations.first else {
+            return ""
+        }
+        return expLanguage == currentLanguage ?  expLanguage :  currentLanguage
     }
 }

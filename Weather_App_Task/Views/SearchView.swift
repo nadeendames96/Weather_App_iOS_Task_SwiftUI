@@ -14,6 +14,8 @@ struct SearchView: View {
                     .padding()
                 List(searchViewModel.searchResults) { item in
                     Text(item.name)
+                        .font(CustomFont.MeduimRegularFont)
+                        .foregroundColor(Color.txtColor)
                         .onTapGesture {
                             searchViewModel.itemClicked(at: item)
                             presentation.wrappedValue.dismiss()
@@ -32,7 +34,7 @@ struct SearchBar: View {
     @Binding var text: String
     var body: some View {
         ZStack(alignment: .trailing) {
-            TextField("Search", text: $text)
+            TextField("Search", text: $text).font(CustomFont.MeduimRegularFont).foregroundColor(Color.txtColor)
                 .padding(7)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)

@@ -14,7 +14,7 @@ struct CitesModelElement: Codable,Identifiable {
     let stateCode: String
     let countryID: Int
     let countryCode, latitude, longitude: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
         case stateID = "state_id"

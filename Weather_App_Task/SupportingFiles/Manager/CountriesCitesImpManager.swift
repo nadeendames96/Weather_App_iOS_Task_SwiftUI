@@ -12,20 +12,20 @@ class CountriesCitiesImp {
     static let shared = CountriesCitiesImp()
     private init () {}
     func getCity() {
-       let queue = DispatchQueue(label: "CountriesCitiesImp")
-       queue.async {
-           CountriesCitiesManager.shared.getCity { [weak self] newCity in
-              self?.cities = newCity
-          }
-       }
+        let queue = DispatchQueue(label: "CountriesCitiesImp")
+        queue.async {
+            CountriesCitiesManager.shared.getCity { [weak self] newCity in
+                self?.cities = newCity
+            }
+        }
     }
     
     func getCountry() {
-       let queue = DispatchQueue(label: "CountriesCitiesImp")
-       queue.async {
-           CountriesCitiesManager.shared.getCountry { [weak self] newCountry in
-              self?.countries = newCountry
-          }
-       }
+        let queue = DispatchQueue(label: "CountriesCitiesImp")
+        queue.async {
+            CountriesCitiesManager.shared.getCountry { [weak self] newCountry in
+                self?.countries = newCountry
+            }
+        }
     }
 }
