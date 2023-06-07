@@ -1,20 +1,60 @@
-//
 //  SearchView.swift
 //  Weather_App_Task
-//
 //  Created by Nadeen Dames on 05/06/2023.
-//
 
 import SwiftUI
-
 struct SearchView: View {
+    @ObservedObject private var searchViewModel = SearchViewModel()
+    @Environment(\.presentationMode) var presentation
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack {
+                SearchBar(text: $searchViewModel.searchText)
+                    .padding()
+                List(searchViewModel.searchResults) { item in
+                    Text(item.name)
+                        .onTapGesture {
+                            searchViewModel.itemClicked(at: item)
+                            presentation.wrappedValue.dismiss()
+                        }
+                }
+            }.onAppear{
+                searchViewModel.getCity()
+            }
+        }
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
+
+
+struct SearchBar: View {
+    @Binding var text: String
+    var body: some View {
+        ZStack(alignment: .trailing) {
+            TextField("Search", text: $text)
+                .padding(7)
+                .background(Color(.systemGray6))
+                .cornerRadius(8)
+                .padding(.horizontal, 8)
+                .overlay(
+                    HStack {
+                        if !text.isEmpty {
+                            Button(action: {
+                                text = ""
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.gray)
+                                    .padding(.trailing,20)
+                            }
+                        }
+                    }
+                )
+            
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.gray)
+                .padding(.trailing, 16)
+        }.cornerRadius(cornerRaduis)
     }
 }
+

@@ -7,6 +7,7 @@ import Combine
 struct HomeView: View {
     @StateObject private var globalViewModel = GlobalViewModel()
     @StateObject private var homeViewModel = HomeViewModel()
+    @State var currLangaue = ""
     var body: some View {
         NavigationView{
             GeometryReader{
@@ -25,6 +26,7 @@ struct HomeView: View {
                                    height: min(geometry.size.width, geometry.size.height))
                             .overlay(
                                 VStack(alignment: .center, spacing: 0){
+                                    Text(verbatim:"\(globalViewModel.locationName)").font(CustomFont.LargeBoldFont).foregroundColor(.white).padding(.top,10)
                                     HStack(){
                                         Text(verbatim: homeViewModel.currentDay)
                                             .foregroundColor(.white)
@@ -72,16 +74,16 @@ struct HomeView: View {
                                                 EmptyView()
                                             }
                                         }
-                                        
                                     }.padding(.top,-60)
                                     Text("\(globalViewModel.countryState)").font(CustomFont.LargeBoldFont)
-                                        .padding(.top,-30)
+                                        .padding(.top,-30).foregroundColor(.white)
                                     Text("\(globalViewModel.weatherCondition)").font(CustomFont.LargeBoldFont)
+                                        .foregroundColor(.white)
                                         .padding(.top,-10)
                                         .padding(.bottom,20)
                                 }
                                     .background(Color.black.opacity(0.5))
-                                    .cornerRadius(50)
+                                    .cornerRadius(40)
                                     .padding(.top,100)
                                     .padding(.all)
                             ).cornerRadius(cornerRaduis)
@@ -153,12 +155,9 @@ struct HomeView: View {
                                 Text("wind_speed".LC())
                                     .foregroundColor(Color.txtColor)
                                 Text("\(globalViewModel.windSpeedWeather)").font(CustomFont.LargeRegularFont).foregroundColor(Color.txtColor)
-                                
-                                
                             }
                         }.padding(.leading,10)
                             .padding(.trailing,10)
-                        
                         if !globalViewModel.dataDaily.isEmpty {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 16) {
@@ -181,35 +180,82 @@ struct HomeView: View {
                                             .foregroundColor(Color.txtColor)
                                         Spacer()
                                     }
-                                  
+                                    
                                 }.background(.yellow.opacity(0.5))
                             }
                             .padding()
                         }
                     }
                 }.onAppear{
+                    
                     globalViewModel.checkNetwork()
                 }
                 .ignoresSafeArea(.all)
                 
                 
-            }.navigationBarItems(trailing:
-                                    NavigationLink(destination: SearchView()) {
-                Image(systemName: "location.magnifyingglass")
-                    .imageScale(.large)
-                    .foregroundColor(.white)
             }
-            )
-            .navigationBarItems(leading:
-                                    NavigationLink(destination: NotificationsView()) {
-                Image(systemName: "bell.fill")
-                    .imageScale(.large)
-                    .foregroundColor(.white)
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Group {
+                        Toggle("Night Mode".LC(), isOn: $homeViewModel.isNightMode)
+                            .padding().foregroundColor(.white)
+                        
+                        NavigationLink(destination: NotificationsView()) {
+                            Image(systemName: "bell.fill")
+                                .imageScale(.large)
+                                .foregroundColor(.white)
+                        }
+                    }
+                    
+                    .buttonStyle(PlainButtonStyle())
+                }
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    
+                    Group {
+                        Button(action: {
+                            guard let currentLanguage = Bundle.main.preferredLocalizations.first else {
+                                return
+                            }
+
+                            if currentLanguage == "ar"{
+                                homeViewModel.changeLanguage(to: "en")
+
+                            }
+                            else{
+                                homeViewModel.changeLanguage(to: "ar")
+                            }
+                            
+                            
+                        }) {
+                            Image(systemName: "network").foregroundColor(.white)
+                        }
+                        NavigationLink(destination: SearchView()) {
+                            Image(systemName: "location.magnifyingglass")
+                                .imageScale(.large)
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
             }
-            )
-            .navigationBarTitleDisplayMode(.large)
-            .navigationBarTitle("\(globalViewModel.locationName)").font(CustomFont.LargeBoldFont).foregroundColor(Color.white)
+            //            .navigationBarItems(trailing:
+            //                                    NavigationLink(destination: SearchView()) {
+            //                Image(systemName: "location.magnifyingglass")
+            //                    .imageScale(.large)
+            //                    .foregroundColor(.white)
+            //            }
+            //            )
+            //            .navigationBarItems(leading:
+            //                                    NavigationLink(destination: NotificationsView()) {
+            //                Image(systemName: "bell.fill")
+            //                    .imageScale(.large)
+            //                    .foregroundColor(.white)
+            //            }
+            //            )
+            //            .navigationBarTitleDisplayMode(.large)
+            //            .navigationBarTitle("\(globalViewModel.locationName)").font(CustomFont.LargeBoldFont).foregroundColor(Color.white)
         }.navigationBarBackButtonHidden()
+            .preferredColorScheme(homeViewModel.isNightMode ? .dark : .light)
         
     }
 }

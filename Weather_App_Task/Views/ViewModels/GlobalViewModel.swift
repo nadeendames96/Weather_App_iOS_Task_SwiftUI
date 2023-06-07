@@ -1,6 +1,5 @@
 //  SplashViewModel.swift
 //  Weather_App_Task
-//
 //  Created by Nadeen Dames on 05/06/2023.
 
 import Combine
@@ -26,10 +25,14 @@ class GlobalViewModel : NSObject, ObservableObject{
     @Published var feels_like = ""
     @Published var pressure = ""
     @Published var testTemp = 0
-    
+    weak var delegate: SearchViewModelDelegate?
     @Published var isGeolocationWeather = false
     private let monitor = NWPathMonitor()
     private let locationManager = CLLocationManager()
+    override init() {
+        super.init()
+        self.delegate = self
+    }
     private func getWeather() {
         if weather.lat != nil && weather.lon != nil {
             self.weather.withGeolocationWeather {
@@ -57,7 +60,7 @@ class GlobalViewModel : NSObject, ObservableObject{
                     self.minTemp = self.weather.currentWeather?.main.temp_min.formatToTwoDigitsCe() ?? ""
                     self.pressure = self.weather.currentWeather?.main.feels_like.formatToTwoDigitsPrec() ?? ""
                 }
-
+                
             }
         } else {
             self.weather.noGeolocationWeather {
@@ -78,7 +81,7 @@ class GlobalViewModel : NSObject, ObservableObject{
                     self.maxTemp = self.weather.currentWeather?.main.temp_max.formatToTwoDigitsCe() ?? ""
                     self.minTemp = self.weather.currentWeather?.main.temp_min.formatToTwoDigitsCe() ?? ""
                     self.pressure = self.weather.currentWeather?.main.feels_like.formatToTwoDigitsPrec() ?? ""
-
+                    
                 }
             }
         }
@@ -145,3 +148,10 @@ extension GlobalViewModel:  CLLocationManagerDelegate  {
     }
 }
 
+extension GlobalViewModel: SearchViewModelDelegate {
+    func setLocation(_ lat: Double, _ lon: Double) {
+        self.weather.lon = lon
+        self.weather.lat = lat
+        getWeather()
+    }
+}

@@ -7,7 +7,7 @@
 
 import Foundation
 // MARK: - CitesModelElement
-struct CitesModelElement: Codable {
+struct CitesModelElement: Codable,Identifiable {
     let id: Int
     let name: String
     let stateID: Int

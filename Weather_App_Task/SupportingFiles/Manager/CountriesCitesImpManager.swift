@@ -7,15 +7,24 @@
 
 import Foundation
 class CountriesCitiesImp {
-    var cities: [CountriesCiteModel]?
+    var cities: [CitesModelElement]?
+    var countries: [CountryModel]?
     static let shared = CountriesCitiesImp()
     private init () {}
-    
-    func getCountryCity() {
+    func getCity() {
        let queue = DispatchQueue(label: "CountriesCitiesImp")
        queue.async {
-           CountriesCitiesManager.shared.getCountryCity { [weak self] newCity in
+           CountriesCitiesManager.shared.getCity { [weak self] newCity in
               self?.cities = newCity
+          }
+       }
+    }
+    
+    func getCountry() {
+       let queue = DispatchQueue(label: "CountriesCitiesImp")
+       queue.async {
+           CountriesCitiesManager.shared.getCountry { [weak self] newCountry in
+              self?.countries = newCountry
           }
        }
     }

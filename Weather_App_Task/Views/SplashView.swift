@@ -17,13 +17,13 @@ struct SplashView: View {
                 }
                 .hidden()
             } .edgesIgnoringSafeArea(.all)
-
             .onAppear{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     KRProgressHUD.show()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         self.isShowMainScreen = true
                         KRProgressHUD.dismiss()
+                        CountriesCitiesImp.shared.getCity()
                     }
                 }
             }
@@ -36,8 +36,3 @@ func loadingScreen(){
     KRProgressHUD.show()
 }
 
-struct SplashView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashView()
-    }
-}

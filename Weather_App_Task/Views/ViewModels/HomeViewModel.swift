@@ -6,9 +6,18 @@
 //
 import SwiftUI
 import Combine
-class HomeViewModel:ObservableObject{
+import CoreLocation
+class HomeViewModel: ObservableObject{
     @Published var currentDay: String = ""
     @Published var currentDate: String = ""
+    @Published var isNightMode = false
+    @Published var selectedLanguage: LanguageModel
+    private let locationManager = CLLocationManager()
+    var setLanguages: [LanguageModel] = [
+        LanguageModel(code: "en", name: "English"),
+        LanguageModel(code: "ar", name: "Arabic"),
+    ]
+    
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE"
@@ -22,6 +31,7 @@ class HomeViewModel:ObservableObject{
     }()
     
     init() {
+        selectedLanguage = LanguageModel(code: "en", name: "English")
         updateCurrentDate()
     }
     
@@ -29,5 +39,32 @@ class HomeViewModel:ObservableObject{
         let now = Date()
         currentDay = dateFormatter.string(from: now)
         currentDate = fullDateFormatter.string(from: now)
+    }
+    
+    func toggleNightMode() {
+        isNightMode.toggle()
+        updateAppTheme()
+    }
+    
+    private func updateAppTheme() {
+        if isNightMode {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .dark
+        } else {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = .light
+        }
+    }
+    func changeLanguage(to currentLanguage: String) {
+        if let selectedLanguage = setLanguages.first(where: { $0.code == currentLanguage }) {
+            self.selectedLanguage = selectedLanguage
+            updateAppLanguage()
+        }
+    }
+    
+    private func updateAppLanguage() {
+        DispatchQueue.main.async {
+            UserDefaults.standard.set([self.selectedLanguage.code], forKey: "AppleLanguages")
+            UserDefaults.standard.synchronize()
+            UIApplication.shared.windows.first?.rootViewController = UIHostingController(rootView: SplashView())
+        }
     }
 }
